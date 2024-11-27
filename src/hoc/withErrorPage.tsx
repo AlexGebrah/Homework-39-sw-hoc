@@ -1,7 +1,7 @@
 import {characters, defaultHero} from "../utils/constants.ts";
 import {useParams} from "react-router-dom";
 import ErrorPage from "../components/ErrorPage.tsx";
-import {useContext, useEffect} from "react";
+import React, {useContext, useEffect} from "react";
 import {SWContext} from "../utils/context.ts";
 
 export const SwWrapper = (WrapComponent: React.ComponentType) => {
