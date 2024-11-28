@@ -4,7 +4,11 @@ import ErrorPage from "../components/ErrorPage.tsx";
 import React, {useContext, useEffect} from "react";
 import {SWContext} from "../utils/context.ts";
 
-export const SwWrapper = (WrapComponent: React.ComponentType) => {
+interface Props {
+    heroId: string
+}
+
+export const SwWrapper = (WrapComponent: React.ComponentType<Props>) => (props: object) => {
     return () => {
         const {heroId = defaultHero} = useParams();
         const {changeHero} = useContext(SWContext);
@@ -16,6 +20,6 @@ export const SwWrapper = (WrapComponent: React.ComponentType) => {
             changeHero(heroId);
         }, [heroId])
 
-        return characters[heroId] ? <WrapComponent/> : <ErrorPage/>;
+        return characters[heroId] ? <WrapComponent heroId = {heroId} {...props}/> : <ErrorPage/>;
     }
 }
