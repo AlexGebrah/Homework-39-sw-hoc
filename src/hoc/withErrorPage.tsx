@@ -16,10 +16,6 @@ export const SwWrapper = (WrapComponent: React.ComponentType) => {
             changeHero(heroId);
         }, [heroId])
 
-        return characters[heroId] ? (
-                <WrapComponent/>
-            )
-            :
-            <ErrorPage/>
+        return characters[heroId] ? <WrapComponent/> : <ErrorPage/>;
     }
-};
+}
