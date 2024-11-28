@@ -3,11 +3,11 @@ import {characters, period_month} from "../utils/constants.ts";
 import {HeroInfo} from "../utils/types";
 import {SwWrapper} from "../hoc/withErrorPage.tsx";
 
-interface Props {
+interface AboutMeProps {
     heroId: string
 }
 
-const AboutMe = ({heroId}: Props) => {
+const AboutMe = ({heroId}: AboutMeProps) => {
     const [hero, setHero] = useState<HeroInfo>();
 
     useEffect(() => {
