@@ -7,14 +7,16 @@ import {SWContext} from "../utils/context.ts";
 export const SwWrapper = <T extends object> (WrapComponent: React.ComponentType<T>) => (props: T) => {
 
         const {heroId = defaultHero} = useParams();
-        const {changeHero} = useContext(SWContext);
+        const {changeHero, setErrorMessage} = useContext(SWContext);
 
         useEffect(() => {
             if (!characters[heroId]) {
+                setErrorMessage('Hero not found!');
                 return;
             }
+            setErrorMessage('');
             changeHero(heroId);
-        }, [heroId])
+        }, [heroId, changeHero, setErrorMessage])
 
         return characters[heroId] ? <WrapComponent  {...props} heroId = {heroId}/> : <ErrorPage/>;
     }

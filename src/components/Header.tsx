@@ -4,14 +4,14 @@ import {SWContext} from "../utils/context.ts";
 import {characters} from "../utils/constants.ts";
 
 const Header = () => {
-    const {hero} = useContext(SWContext);
+    const {hero, errorMessage} = useContext(SWContext);
 
     return (
         <header className="bg-grey-color rounded-t-2xl">
             <Navigation/>
-            <h1 className="text-center py-6 text-3xl">{characters[hero].name}</h1>
+            <h1 className="text-center py-6 text-3xl">{errorMessage || (hero && characters[hero]?.name)}</h1>
         </header>
     );
 };
 
-export default Header;
+export default  Header;

@@ -1,6 +1,8 @@
 export interface SWContextValue {
     hero: string,
     changeHero: (hero: string) => void,
+    errorMessage: string,
+    setErrorMessage: (message: string) => void
 }
 
 export interface HeroInfo {
